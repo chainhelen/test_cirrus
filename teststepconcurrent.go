@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"time"
+	"math/rand"
 	"sync"
+	"time"
 )
 
 var v int = 99
@@ -12,6 +13,7 @@ var s string
 
 func Foo(x, y int) (z int) {
 	//s = fmt.Sprintf("x=%d, y=%d, z=%d\n", x, y, z)
+	time.Sleep(time.Duration(rand.Intn(10)) * time.Millisecond)
 	z = x + y
 	return
 }
@@ -22,7 +24,7 @@ func Threads(fn func(x, y int) int) {
 		go func() {
 			for k := 0; k < 100; k++ {
 				fn(1, 2)
-				time.Sleep(10 * time.Millisecond)
+				time.Sleep(time.Duration(rand.Intn(10)) * time.Millisecond)
 			}
 			wg.Done()
 		}()
@@ -30,6 +32,7 @@ func Threads(fn func(x, y int) int) {
 }
 
 func main() {
+	rand.Seed(time.Now().UnixNano())
 	x := v
 	y := x * x
 	var z int
