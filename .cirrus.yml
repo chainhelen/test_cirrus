@@ -1,0 +1,18 @@
+linux386_task:
+  container:
+    image: i386/ubuntu:18.04
+  env:
+    matrix:
+      - GOVERSION: 1.12
+      - GOVERSION: 1.13
+      - GOVERSION: 1.14
+  test_script:
+    -  apt-get -y update
+    -  apt-get -y install software-properties-common
+    -  apt-get -y install git
+    -  add-apt-repository ppa:longsleep/golang-backports
+    -  apt-get -y install golang-${GOVERSION}-go
+    -  export PATH=$PATH:/usr/lib/go-${GOVERSION}/bin
+    -  go version
+    -  uname -a
+    -  for ((i=1; i<=100; i++)); do go run teststepconcurrent.go ; done
