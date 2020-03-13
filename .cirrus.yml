@@ -15,4 +15,5 @@ linux386_task:
     -  export PATH=$PATH:/usr/lib/go-${GOVERSION}/bin
     -  go version
     -  uname -a
-    -  for ((i=1; i<=100; i++)); do go run teststepconcurrent.go ; done
+    # -  for ((i=1; i<=100; i++)); do go run teststepconcurrent.go ; done
+    -  for ((i=1; i<=300; i++)); do go build -gcflags="all=-N -l" -o main teststepconcurrent.go; ./main ; done  
