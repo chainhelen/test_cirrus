@@ -10,10 +10,11 @@ linuxamd64_task:
     -  yum -y install wget make git gcc
     -  wget -q https://dl.google.com/go/go${GOVERSION}.linux-amd64.tar.gz
     -  tar -C /usr/local -xzf go${GOVERSION}.linux-amd64.tar.gz
+    -  cp -rf /usr/local/go /usr/local/gotestall
     -  export PATH=$PATH:/usr/local/go/bin
-    -  export GOROOT_BOOTSTRAP=/usr/local/go
-    -  uname -a
+    -  export GOROOT_BOOTSTRAP=/usr/local/gotestall
     -  go version
+    -  uname -a
     -  cd /usr/local/go/src
     -  ./all.bash
 
@@ -30,8 +31,9 @@ linux386_task:
     -  yum -y install wget make git gcc
     -  wget -q https://dl.google.com/go/go${GOVERSION}.linux-386.tar.gz
     -  tar -C /usr/local -xzf go${GOVERSION}.linux-386.tar.gz
+    -  cp -rf /usr/local/go /usr/local/gotestall
     -  export PATH=$PATH:/usr/local/go/bin
-    -  export GOROOT_BOOTSTRAP=/usr/local/go
+    -  export GOROOT_BOOTSTRAP=/usr/local/gotestall
     -  go version
     -  uname -a
     -  cd /usr/local/go/src
