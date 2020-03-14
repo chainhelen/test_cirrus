@@ -10,10 +10,11 @@ linuxamd64_task:
     -  yum -y install wget make git gcc
     -  wget -q https://dl.google.com/go/go${GOVERSION}.linux-amd64.tar.gz
     -  tar -C /usr/local -xzf go${GOVERSION}.linux-amd64.tar.gz
+    -  export PATH=$PATH:/usr/local/go/bin
+    -  uname -a
+    -  go version
     -  cd /usr/local/go/src
     -  ./all.bash
-    #    -  export PATH=$PATH:/usr/local/go/bin
-    #    -  uname -a
 
 linux386_task:
   container:
@@ -28,8 +29,8 @@ linux386_task:
     -  yum -y install wget make git gcc
     -  wget -q https://dl.google.com/go/go${GOVERSION}.linux-386.tar.gz
     -  tar -C /usr/local -xzf go${GOVERSION}.linux-386.tar.gz
+    -  export PATH=$PATH:/usr/local/go/bin
+    -  go version
     -  uname -a
     -  cd /usr/local/go/src
     -  ./all.bash
-    #-  export PATH=$PATH:/usr/local/go/bin
-    #-  go version
