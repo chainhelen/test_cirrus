@@ -11,6 +11,7 @@ linuxamd64_task:
     -  wget -q https://dl.google.com/go/go${GOVERSION}.linux-amd64.tar.gz
     -  tar -C /usr/local -xzf go${GOVERSION}.linux-amd64.tar.gz
     -  export PATH=$PATH:/usr/local/go/bin
+    -  export GOROOT_BOOTSTRAP=/usr/local/go
     -  uname -a
     -  go version
     -  cd /usr/local/go/src
@@ -30,6 +31,7 @@ linux386_task:
     -  wget -q https://dl.google.com/go/go${GOVERSION}.linux-386.tar.gz
     -  tar -C /usr/local -xzf go${GOVERSION}.linux-386.tar.gz
     -  export PATH=$PATH:/usr/local/go/bin
+    -  export GOROOT_BOOTSTRAP=/usr/local/go
     -  go version
     -  uname -a
     -  cd /usr/local/go/src
