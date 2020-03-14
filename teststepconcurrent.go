@@ -36,6 +36,7 @@ func main() {
 	Threads(Foo)
 	for i := 0; i < 100; i++ {
 		z = Foo(x, y)
+		time.Sleep(10 * time.Millisecond)
 	}
 	fmt.Printf("z=%d\n", z)
 	wg.Wait()
